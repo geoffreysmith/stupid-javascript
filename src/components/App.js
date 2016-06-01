@@ -1,22 +1,30 @@
-import React, { PropTypes } from 'react';
-import { IndexLink } from 'react-router';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import NavBar from './NavBar';
+import React from 'react';
+import LoginBar from './LoginBar';
+import AppBar from 'material-ui/AppBar';
 
-const App = (props) => {
-  return (
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    console.log('hello')
+  }
+
+  render() {
+    const { props } = this
+    console.log(this.state)
+
+    return (
     <div>
-        <NavBar />
-        <div>
-          {props.children}
-        </div>
+      <AppBar style={{backgroundColor: '#455a64'}}
+              title="ADA Aware"
+              showMenuIconButton={false}>
+        <LoginBar/>
+      </AppBar>
+      <div>
+        {props.children}
+      </div>
     </div>
-  );
-};
-
-App.propTypes = {
-  children: PropTypes.element
-};
+  )}
+}
 
 export default App;
